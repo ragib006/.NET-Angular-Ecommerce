@@ -1,0 +1,46 @@
+
+
+
+<div class="container">
+
+<div class="fgg" style="width: 50%;margin: 100px auto">	
+<div class="card">
+
+	<h3 style="width: 100px;margin:20px auto">Log In</h3>
+	 <form style="padding: 20px" [formGroup]="loginForm">
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email</label>
+  <input type="email" class="form-control" formControlName="email" placeholder="Enter Email" style="width:90%" required>
+
+</div>
+
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Password</label>
+
+  <div>
+  <input [type]="type" formControlName="password" class="form-control"  placeholder="Enter Password" style="width:90%;float:left" required>
+
+
+
+  <span style="margin-left:10px"><i (click)="hideShowPass()"  class="fa {{eyeIcon}}" aria-hidden="true" style="font-size:20px"></i></span>
+  </div>
+
+</div>
+
+<div style="padding-top: 30px;">
+
+<a [routerLink]="'/signup'" style="width:500px;float:left;text-decoration:none">Create New User</a>
+<button  (click)="onSubmit()" type="submit" class="btn btn-primary" style="width:100px;float:right">Login</button>	
+
+</div>
+
+
+
+</form>
+
+</div>
+
+</div>
+
+</div>

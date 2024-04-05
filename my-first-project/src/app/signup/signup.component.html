@@ -1,0 +1,64 @@
+
+
+
+<div class="container">
+
+<div class="fgg" style="width: 50%;margin: 70px auto">	
+<div class="card">
+
+	<h3 style="width: 100px;margin:20px auto">Sign Up</h3>
+	 
+	 <form style="padding: 20px" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">User Name</label>
+  <input type="text" class="form-control" formControlName="username" placeholder="Enter User Name" style="width:90%" required>
+</div>	 	
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">First Name</label>
+  <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name" style="width:90%" required>
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+  <input type="text" class="form-control" formControlName="lastName" placeholder="User Name" style="width:90%" required>
+</div>
+
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email</label>
+  <input type="email" class="form-control" formControlName="email" placeholder="Enter Email" style="width:90%" required>
+</div>
+
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Password</label>
+
+  <div>
+  <input [type]="type" class="form-control" formControlName="password" placeholder="Enter Password" style="width:90%;float:left" required>
+
+
+  <span style="margin-left:10px"><i (click)="hideShowPass()"  class="fa {{eyeIcon}}" aria-hidden="true" style="font-size:20px"></i></span>
+  </div>
+
+</div>
+
+<div style="padding-top: 30px;">
+
+<a [routerLink]="'/login'" style="width:500px;float:left;text-decoration:none">Already have an account</a>
+<button type="submit" class="btn btn-primary" style="width:100px;float:right">Signup</button>	
+
+</div>
+
+
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
