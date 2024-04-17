@@ -16,6 +16,18 @@ import {CartComponent} from './cart/cart.component'
 
 import {UserComponent} from './user/user.component'
 
+import {HomeComponent} from './home/home.component'
+
+import {ViewproductComponent} from './viewproduct/viewproduct.component'
+
+import {ShippingComponent} from './shipping/shipping.component'
+
+import {AllorderComponent} from './allorder/allorder.component'
+
+
+
+import {VieworderComponent} from './vieworder/vieworder.component'
+
 
 
 import {authGuard} from './gurds/auth.guard'
@@ -24,6 +36,14 @@ import {authGuard} from './gurds/auth.guard'
 
 
 export const routes: Routes = [
+
+
+{
+ path:'',
+ component:HomeComponent
+
+},
+
 
 {
  path:'products',
@@ -51,6 +71,12 @@ export const routes: Routes = [
 },
 
 {
+ path:'viewproduct/:id',
+ component:ViewproductComponent
+
+},
+
+{
  path:'login',
  component:LoginComponent
 
@@ -69,6 +95,15 @@ export const routes: Routes = [
 },
 
 {
+ path:'shipping',
+ component:ShippingComponent
+
+},
+
+
+
+
+{
  path:'user',
  component:UserComponent
 
@@ -79,6 +114,18 @@ export const routes: Routes = [
  path:'order',
  component:OrderComponent,
  canActivate:[authGuard]
+
+},
+
+{
+ path:'allorder',
+ component:AllorderComponent
+
+},
+
+{
+ path:'vieworder/:id',
+ component:VieworderComponent
 
 },
 

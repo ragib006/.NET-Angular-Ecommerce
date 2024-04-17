@@ -3,6 +3,8 @@ import { RouterLink,ActivatedRoute,Router } from '@angular/router';
 import {ProductsService} from '../services/products.service';
 import Swal from 'sweetalert2';
 
+import {UserStoreService} from '../services/user-store.service';
+
 import {
   /* . . . */
   NgFor,NgIf
@@ -20,10 +22,15 @@ export class NavbarComponent implements OnInit{
 
   uniqueName: string | undefined;
 
+  public fullName : string = "";
+
+  public role : string = "";
+
 	 constructor(
   	private productService: ProductsService,
    	private route: ActivatedRoute,
-  	private router: Router
+  	private router: Router,
+  	private userStore:UserStoreService,
 
   	) { }
 
@@ -35,20 +42,60 @@ export class NavbarComponent implements OnInit{
  // }
 
     ngOnInit(): void {
-    this.displayUniqueName();
+   // this.displayUniqueName();
 
 
-    console.log(this.displayUniqueName());
+   // console.log(this.displayUniqueName());
+
+
+     this. displayuserName();
+
+     this.adminRole();
+
   }
 
 
 
-  displayUniqueName() {
-    const decodedToken = this.productService.decodeToken(); // Assuming authService has the decodeToken function
-    if (decodedToken) {
-      this.uniqueName = decodedToken.unique_name;
-    }
+ // displayUniqueName() {
+ //   const decodedToken = this.productService.decodeToken(); // Assuming authService has the decodeToken function
+ //   if (decodedToken) {
+ //     this.uniqueName = decodedToken.unique_name;
+ //   }
+ // }
+
+
+
+  displayuserName() {
+   
+   this.userStore.getFullNameFromStore().subscribe(val=>{
+
+       const fullNameFromToken = this.productService.getfullNameFromToken();
+
+       this.fullName = val || fullNameFromToken
+
+   })
   }
+
+
+
+adminRole(){
+
+
+   this.userStore.getRoleFromStore().subscribe(val=>{
+
+       const roleFromToken = this.productService.getRoleFromToken();
+
+       this.role = val || roleFromToken
+
+   })
+
+
+}
+
+
+
+
+
 
 
 
@@ -57,7 +104,12 @@ export class NavbarComponent implements OnInit{
 
 	 this.productService.signOut();
 
-	 this.uniqueName = undefined;
+	   this.fullName = ''; // Clear the displayed full name
+       this.role = ''; // Clear the displayed role
+
+	// this.uniqueName = undefined;
+
+	// this.fullName = undefined;
 
       this.router.navigate(['/login']);
 

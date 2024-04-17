@@ -1,58 +1,61 @@
 import { Component,OnInit } from '@angular/core';
 import { RouterLink,ActivatedRoute,Router } from '@angular/router';
 import {ProductsService} from '../services/products.service';
-import {Product} from '../types/product';
+import {CartItem} from '../types/cartitem';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
+
 import {
   /* . . . */
   NgFor,
   /* . . . */
 } from '@angular/common';
 
-@Component({
-  selector: 'app-cart',
-  standalone: true,
-  imports: [CommonModule,NgFor,RouterLink,FormsModule],
-  templateUrl: './cart.component.html',
-  styleUrl: './cart.component.css'
-})
-export class CartComponent implements OnInit{
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-public cartproduct:any = [];
+@Component({
+  selector: 'app-allorder',
+  standalone: true,
+   imports: [CommonModule,NgFor,RouterLink,FormsModule],
+  templateUrl: './allorder.component.html',
+  styleUrl: './allorder.component.css'
+})
+export class AllorderComponent implements OnInit{
+
+
+
+
+   public allorder:any = [];
+
   serialNumber: number = 1;
 
-//deleteResultMessage: string = '';
   constructor(
   	private productService: ProductsService,
    	private route: ActivatedRoute,
-  	private router: Router
+  	private router: Router,
+
 
   	) { }
 
 
+  ngOnInit(): void {
+ 
+ 
 
-  ngOnInit() {
-    // Load existing product details for updating
-   //  this.loadProduct();
-    // Load product list
-    this.loadcartProductList();
+  this.loadorderList();
 
-     
-//console.log("my product reload");
-
-  }
+}
 
 
 
-  loadcartProductList() {
-    this.productService.getCartProduct()
+  loadorderList() {
+    this.productService.getallorder()
       .subscribe((response) => {
 
       console.log(response);
 
-        this.cartproduct = response;
+        this.allorder = response;
       }, (error) => {
         console.error('Error loading product list:', error);
       });
@@ -61,9 +64,8 @@ public cartproduct:any = [];
 
 
 
-
-  deleteProduct(productId: number) {
-    this.productService.deleteCartProduct(productId).subscribe(
+  deleteOrder(id: number) {
+    this.productService.deleteorder(id).subscribe(
       (response) => { // Cast response to string
         console.log('Delete response:', response);
 
@@ -80,10 +82,10 @@ public cartproduct:any = [];
 });
 Toast.fire({
   icon: "success",
-  title: "Product Delete successfully"
+  title: "Order Delete successfully"
 });
       
-        this.loadcartProductList(); // Reload product list after deletion
+        this.loadorderList(); // Reload product list after deletion
       },
       (error) => {
         console.error('Error deleting product:', error);
@@ -91,7 +93,6 @@ Toast.fire({
       }
     );
   }
-
 
 
 

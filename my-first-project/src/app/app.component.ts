@@ -1,7 +1,17 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { RouterOutlet,RouterLink } from '@angular/router';
-
+import {ProductsService} from './services/products.service';
 import {NavbarComponent} from './navbar/navbar.component'
+import {Product} from './types/product';
+
+import {
+  /* . . . */
+  NgFor,
+  /* . . . */
+} from '@angular/common';
+
+
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +22,8 @@ import {NavbarComponent} from './navbar/navbar.component'
 })
 export class AppComponent {
   title = 'my-first-project';
+
+
+
+
 }

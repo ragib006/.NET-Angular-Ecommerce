@@ -1,0 +1,54 @@
+<div class="container" style="margin-top: 20px;margin-bottom: 20px">
+	
+
+<table class="table table-striped">
+
+  <thead>
+    <tr>
+    
+      <th scope="col">Id</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Shipping Name</th>
+      <th scope="col">Shipping Address</th>
+      <th scope="col">Payment Method</th>
+      <th scope="col">Payment Status</th>
+      <th scope="col">Trx Id</th>
+      <th scope="col">Order Status</th>
+       <th scope="col">Order Amount</th>
+        <th scope="col">Date</th>
+          <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of allorder; let i = index">
+   
+      <td>{{item.id}}</td>
+      <td>{{item.username}}</td>
+ 
+     
+        <td>{{item.shippingName}}</td>
+        <td>{{item.shippingAddress}}</td>
+        <td>{{item.paymentMethod}}</td>
+        <td>{{item.paymentStatus}}</td>
+        <td>{{item.taxId}}</td>
+        <td>{{item.orderStatus}}</td>
+        <td>{{item.orderTotal}} TK</td>
+
+
+         <td>{{item.orderDate | date:'mediumDate'}}</td>
+      <td style="width: 120px;">
+
+ <a [routerLink]="['/vieworder/',item.id]" class="btn btn-primary" style=""><i class="fa fa-eye"></i></a>
+      	
+<a (click)="deleteOrder(item.id)" class="btn btn-primary" style="margin-left:5px"><i class="fa fa-trash"></i></a>
+
+      </td>
+
+  
+
+    </tr>
+   
+  </tbody>
+
+</table>
+</div>

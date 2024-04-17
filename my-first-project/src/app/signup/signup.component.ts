@@ -62,7 +62,7 @@ export class SignupComponent implements OnInit{
 
             this.loginForm.reset();
             alert(res.message);
-            this.router.navigate(['/addproduct']);
+            this.router.navigate(['/login']);
 
           },error:(err)=>{
 

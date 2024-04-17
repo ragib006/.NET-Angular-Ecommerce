@@ -1,0 +1,50 @@
+
+
+<div class="container" style="margin-top: 20px">
+	
+<div class="card" style="padding: 30px;width:60%">
+
+	<p class="text-center" style="font-size: 20px">Shipping Address</p>
+
+	<div class="formdata">
+		
+
+<form (ngSubmit)="submitShippingInfo()">
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Shipping Name</label>
+  <input type="text" class="form-control" name="shippingName" [(ngModel)]="shippingInfo.shippingName" placeholder="Enter Shipping Name" style="width: 600px" required>
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Shipping Email</label>
+  <input type="text" class="form-control" name="shippingEmail" [(ngModel)]="shippingInfo.shippingEmail"  placeholder="Enter Shipping Email" style="width:600px" required>
+</div>
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Shipping Phone</label>
+  <input type="text" class="form-control" name="shippingPhone" [(ngModel)]="shippingInfo.shippingPhone"   name="price" placeholder="Enter Shipping Phone" style="width: 600px" required>
+</div>
+
+
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Shipping District</label>
+  <input type="text" class="form-control" name="shippingDistrict" [(ngModel)]="shippingInfo.shippingDistrict"  placeholder="Enter Shipping District" style="width: 600px" required>
+</div>
+
+
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Shipping Address</label>
+  <input type="text" class="form-control"  name="shippingAddress" [(ngModel)]="shippingInfo.shippingAddress"  placeholder="Enter Shipping Address" style="width: 600px" required>
+</div>
+
+
+<button type="submit" class="btn btn-primary">Checkout</button>
+
+</form>
+
+	</div>
+	
+
+
+</div>
+</div>
